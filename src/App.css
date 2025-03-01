@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+*{
+  padding: 0;
+  box-sizing: border-box !important;
+  list-style-type: none !important;
+  text-decoration: none !important;
+  /* border: 1px solid red; */
+  text-decoration: none;
+  font-family: "Inter", serif;
+  margin: 0 !important;
+  
+}
+
+.sign{
+  min-height: 100vh;
+}
+
+.img-side {
+  /* background-color: #000; */
+  overflow: hidden !important;
+  object-fit: contain;
+  height: 100vh;
+}
+
+.img-side img {
+  object-fit: cover;
+  max-width: 100% !important;
+  height: fit-content;
+  height: 100%;
+}
+
+p,small {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+
+small {
+    font-size: 12px !important;
+}
+
+p {
+    font-size: 14.8px !important;
+}
+
+body{
+    color: hsl(213, 96%, 18%) !important;
+}
+
+.color {
+    color: #0656B2;
+}
+
+.color-bg{
+    background-color: #EEF3F9;
+}
+
+.main{
+    background-color: #f1f1f1;
+}
+
+
+.input::placeholder{
+    color: hsl(213, 96%, 18%) !important;
+}
+
+
+.input-field input{
+    padding: 9px 0.8rem;
+    display: block;
+    width: 100% !important;
+    border: 1px solid #ccc;
+    border-radius: 4px !important;
+    outline: none !important;
+    font-size:  13px !important;
+    color: hsl(213, 96%, 18%);  
+}
+
+input.check{
+    padding: 0px !important;
+}
+
+label{
+    font-size: 13px;
+}
+
+button{
+    border: none;
+    outline: none;
+    font-size: 14px !important;
+    /* padding: 4px 14px; */
+    display: block;
+    font-size: 13px !important;
+    transition: all 300ms ease-in-out;
+}
+
+option{
+    font-size: small !important;
+    color: #333;
+}
+
+button:hover{
+    background-color: #ffffff !important;
+    color: black !important;
+    border: 1px solid #ccc;
+
+}
+
+
+.main {
+    min-height: 100vh;
+    
+}
+
+
+.form-container {
+    width: 490px;
+    max-width: 100%;
+    min-height: 540px;
+    position: relative;
+    background-color: #ffffff;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+.each {
+    height: 5px;
+    background-color: #EEF3F9;
+}
+
+.each.active{
+    background-color: blue;
+
+}
+
+.so-form {
+    max-width: 100%;
+}
+
+/* Style the select dropdown */
+.so-form select {
+    width: 100%;
+    padding: 9px 0.8rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    
+    
+    
+    color: #333; /* Text color */
+    font-size: 14px;
+    outline: none !important;
+    cursor: pointer;
+  }
+  
+  /* Style the options */
+  option {
+    color: black;
+    font-size: 14px;
+    background: white;
+    padding: 5px;
+  }
+  
+  /* Change background color when hovering over options (only works in some browsers) */
+  option:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* When an option is selected */
+  select:focus {
+    outline: none;
+    /* border-color: blue; */
+    box-shadow: 0 0 1px rgba(93, 93, 124, 0.5);
+  }
+  
+  /* Custom styles when the select dropdown is disabled */
+  select:disabled {
+    background-color: #f2f2f2;
+    cursor: not-allowed;
+  }
+  
+
+
+label{
+    font-size: small !important;
+}
+
+.grid2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+.cta{
+    position: absolute;
+    left: 1.6rem;
+    bottom: 1rem;
+    width: calc(100% - 3rem);
+    /* width: 0%; */
+}
