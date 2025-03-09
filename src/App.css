@@ -66,7 +66,17 @@ body{
     color: hsl(213, 96%, 18%) !important;
 }
 
+.input-field{
+    position: relative;
+}
 
+.error{
+    position: absolute;
+    top:6px;
+    right: 0;
+    color: red;
+    font-weight: bold;
+}
 .input-field input{
     padding: 9px 0.8rem;
     display: block;

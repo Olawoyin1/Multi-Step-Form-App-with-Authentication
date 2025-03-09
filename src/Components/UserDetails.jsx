@@ -1,75 +1,99 @@
 import React from "react";
 
-const UserDetails = () => {
-
-  const gender = [
-    "male",
-    "female",
-  ]
-
+const UserDetails = ({ formik }) => {
+  const genderOptions = ["male", "female"];
 
   return (
     <div>
       <div className="s-header text-center d-flex flex-column gap-1">
-        <p className="fw-bold">
-        Personal Information 
-        </p>
+        <p className="fw-bold">Personal Information</p>
         <small className="text-muted">
-        Tell us a bit about yourself to get started.
+          Tell us a bit about yourself to get started.
         </small>
       </div>
 
-      
-      <form action="" className="so-form my-3 d-flex flex-column gap-2">
-
+      <div className="so-form my-3 d-flex flex-column gap-2">
         <div className="grid2 gap-2">
-            {/* Institution Selection */}
-            <div className="input-field">
-            <label htmlFor="institution">First Name</label>
-            
-              <input placeholder="Firstname" type="text" />
-            </div>
+          <div className="input-field">
+            <label>Firstname</label>
+            <input
+              name="firstName"
+              type="text"
+              placeholder="Firstname"
+              {...formik.getFieldProps("firstName")}
+            />
+            {formik.touched.firstName && formik.errors.firstName && (
+              <small className="error">
+                {formik.errors.firstName}
+              </small>
+            )}
+          </div>
 
-            {/* Academic Level Selection */}
-            <div className="input-field">
-            <label htmlFor="level">Last Name</label>
-            <input type="text" placeholder="Lastname" />
-            </div>
-        </div>
-
-        {/* Field of Study & GPA */}
-        <div className="input-field">
-        <label htmlFor="fieldOfStudy">Email Address</label>
-        <input type="email" id="email" placeholder="Email " />
-        </div>
-
-        <div className="input-field">
-        <label htmlFor="gpa">Phone Number</label>
-        <input type="text" id="gpa" placeholder="Phone Number" />
-        </div>
-
-        {/* Interests Selection */}
-        <div className="input-field">
-          <label htmlFor="interest">Date Of Birth</label>
-          <input type="date" name="" id="" />
+          <div className="input-field">
+            <label>Last Name</label>
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Lastname"
+              {...formik.getFieldProps("lastName")}
+            />
+            {formik.touched.lastName && formik.errors.lastName && (
+              <small className="error">{formik.errors.lastName}</small>
+            )}
+          </div>
         </div>
 
         <div className="input-field">
-        <label htmlFor="gender">Gender</label>
-        <select id="gender">
+          <label>Email Address</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            {...formik.getFieldProps("email")}
+          />
+          {formik.touched.email && formik.errors.email && (
+            <small className="error">{formik.errors.email}</small>
+          )}
+        </div>
+
+        <div className="input-field">
+          <label>Phone Number</label>
+          <input
+            type="text"
+            name="phoneNumber"
+            placeholder="Phone Number"
+            {...formik.getFieldProps("phoneNumber")}
+          />
+          {formik.touched.phoneNumber && formik.errors.phoneNumber && (
+            <small className="error">{formik.errors.phoneNumber}</small>
+          )}
+        </div>
+
+        <div className="input-field">
+          <label>Date Of Birth</label>
+          <input type="date" name="dob" {...formik.getFieldProps("dob")} />
+          {formik.touched.dob && formik.errors.dob && (
+            <small className="error">{formik.errors.dob}</small>
+          )}
+        </div>
+
+        <div className="input-field">
+          <label>Gender</label>
+          <select name="gender" {...formik.getFieldProps("gender")}>
             <option value="">Select Gender</option>
-            {gender.map((interest, index) => (
-              <option key={index} value={interest}>
-                {interest}
+            {genderOptions.map((g, index) => (
+              <option key={index} value={g}>
+                {g}
               </option>
             ))}
           </select>
+          {formik.touched.gender && formik.errors.gender && (
+            <small className="error">{formik.errors.gender}</small>
+          )}
         </div>
-
-      </form>
+      </div>
     </div>
   );
 };
 
-export default UserDetails
-;
+export default UserDetails;
