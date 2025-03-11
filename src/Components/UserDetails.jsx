@@ -17,14 +17,13 @@ const UserDetails = ({ formik }) => {
           <div className="input-field">
             <label>Firstname</label>
             <input
-              name="firstName"
               type="text"
               placeholder="Firstname"
-              {...formik.getFieldProps("firstName")}
+              {...formik.getFieldProps("first_name")}
             />
-            {formik.touched.firstName && formik.errors.firstName && (
+            {formik.touched.first_name && formik.errors.first_name && (
               <small className="error">
-                {formik.errors.firstName}
+                {formik.errors.first_name}
               </small>
             )}
           </div>
@@ -33,12 +32,11 @@ const UserDetails = ({ formik }) => {
             <label>Last Name</label>
             <input
               type="text"
-              name="lastName"
               placeholder="Lastname"
-              {...formik.getFieldProps("lastName")}
+              {...formik.getFieldProps("last_name")}
             />
-            {formik.touched.lastName && formik.errors.lastName && (
-              <small className="error">{formik.errors.lastName}</small>
+            {formik.touched.last_name && formik.errors.last_name && (
+              <small className="error">{formik.errors.last_name}</small>
             )}
           </div>
         </div>
