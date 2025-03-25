@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Verification = ({ formik }) => {
+const Verification = ({ formik, resendOTP }) => {
   return (
     <div className='mt-4'>
       <p>Verify Your Identity</p>
@@ -16,7 +16,7 @@ const Verification = ({ formik }) => {
 
         </div>
         
-        <button className='btn btn-dark rounded-0 mt-3'>Resend OTP</button>
+        <button className='btn btn-dark rounded-0 mt-3' onClick={resendOTP}>Resend OTP</button>
       </div>
     </div>
   )

@@ -60,10 +60,10 @@ const UserDetails = ({ formik }) => {
             type="text"
             name="phoneNumber"
             placeholder="Phone Number"
-            {...formik.getFieldProps("phoneNumber")}
+            {...formik.getFieldProps("phonenumber")}
           />
-          {formik.touched.phoneNumber && formik.errors.phoneNumber && (
-            <small className="error">{formik.errors.phoneNumber}</small>
+          {formik.touched.phonenumber && formik.errors.phonenumber && (
+            <small className="error">{formik.errors.phonenumber}</small>
           )}
         </div>
 
