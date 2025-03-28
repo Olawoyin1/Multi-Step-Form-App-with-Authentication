@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Success from "./Components/Success";
+import Success from "./Components/Home";
 import UserDetails from "./Components/UserDetails";
 import Verification from "./Components/Verification";
 import Password from "./Components/Password";
@@ -8,11 +8,11 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import toast from "react-hot-toast";
 import Loading from "./Components/Loading";
+import { Link } from "react-router-dom";
 
 const Main = () => {
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
-  const [hasError, setHasError] = useState(false); // Track errors
 
   const steps = [
     { number: 1, label: "User Details" },
@@ -101,7 +101,7 @@ const Main = () => {
       if (error.response?.status === 400) {
         setErrors({ email: error.response.data.email || "Email is invalid" });
       } else {
-        setErrors({ general: "An unexpected error occurred." });
+        toast.error("Something went wrong. Try again.");
       }
       return { error: true }; // ❌ Error, don't proceed
     } finally {
@@ -151,8 +151,21 @@ const Main = () => {
   
 
 
-  const resendOTP = async()=>{
+  const resendOTP = async(values)=>{
     console.log("sending OTP agian please hold")
+    setLoading(true)
+    console.log(values)
+    try {
+      const response = axios.post("http://localhost:8000/resend-otp/", values)
+      toast.success(response.data)
+      
+    } catch (error) {
+      console.log(error.message)
+      toast.error(error.message)
+    }finally{
+      setLoading(false)
+
+    }
   }
 
 
@@ -173,7 +186,7 @@ const Main = () => {
           <div className="img-side col-6 m-0 p-0">
             <img src="../Images/bg3.jpg" alt="" />
           </div>
-          <div className="form-side col-6 m-0 d-flex align-items-center justify-content-center p-0">
+          <div className="form-side position-relative col-6 m-0 d-flex align-items-center justify-content-center p-0">
             {loading && <Loading />}
 
             <div className="form-container rounded p-4">
@@ -196,12 +209,11 @@ const Main = () => {
                 </div>
 
                 {/* CTA Buttons */}
-                <div className="cta d-flex justify-content-between gap-2">
+                <div className="cta d-flex align-items-center justify-content-between">
                   {/* Skip Button */}
                   {step === 1 && (
                     <div>
-                      <small>Already have an Account?</small>
-                      <button className="bg-white">Login</button>
+                      <small>Already have an Account? <Link to="/login">Login</Link></small>
                     </div>
                   )}
 

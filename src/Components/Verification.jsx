@@ -16,7 +16,7 @@ const Verification = ({ formik, resendOTP }) => {
 
         </div>
         
-        <button className='btn btn-dark rounded-0 mt-3' onClick={resendOTP}>Resend OTP</button>
+        <button className='btn btn-dark rounded-0 mt-3' onClick={()=>resendOTP(formik.values)}>Resend OTP</button>
       </div>
     </div>
   )

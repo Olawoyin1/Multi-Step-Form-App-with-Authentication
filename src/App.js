@@ -4,10 +4,20 @@ import "bootstrap/dist/js/bootstrap.js";
 import Main from "./Main";
 import Login from "./Components/Login.jsx";
 import { Toaster } from "react-hot-toast";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NotFound from "./Components/NotFound.jsx";
+import Home from "./Components/Home.jsx";
+import { UserProvider } from "./Components/UserContext.jsx";
+
+
+
 
 function App() {
   return (
-    <div>
+    <UserProvider>
+
+    
+    <Router>
       <Toaster
         position="top-right"
         toastOptions={{
@@ -19,11 +29,20 @@ function App() {
           },
         }}
       />
-      ;
-      <Main />
-      {/* <Login /> */}
-    </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Main />} />
+        <Route path="*" element={<NotFound />} /> 
+      </Routes>
+    </Router>
+    </UserProvider>
   );
 }
+
+
+
+
+
 
 export default App;
