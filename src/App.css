@@ -362,10 +362,22 @@ label{
 
   @media (max-width: 768px){
     .form-side{
-      /* position: fixed !important; */
+      position: fixed !important;
       top: 4rem;
       margin: 0 auto;
     }
 
+    .grid2{
+      display: grid;
+      grid-template-columns: 1fr;
+  }
+
+  .form-container{
+    min-height: 70vh;
+    background-color: #ffffff7b;
+    backdrop-filter: blur(2px);
+    border-radius: none;
+  }
+  
     
   }

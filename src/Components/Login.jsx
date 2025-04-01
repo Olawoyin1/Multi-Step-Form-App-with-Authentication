@@ -100,7 +100,7 @@ const Login = () => {
   return (
     <div>
       <div className="row m-0">
-        <div className="col-6 position-relative d-flex align-items-center justify-content-center">
+        <div className="col col-md-6 form-side d-flex align-items-center justify-content-center">
         {loading && <Loading />}
           <div className="form-container d-flex align-items-center justify-content-center rounded p-4">
               <form action=""  onSubmit={formik.handleSubmit} className='d-flex  flex-column gap-3 w-100'>
@@ -148,7 +148,7 @@ const Login = () => {
           </div>
         </div>
           
-        <div className="img-side col-6 m-0 p-0">
+        <div className="img-side col-md-6 m-0 p-0">
           <img src="../Images/log.jpg" alt="" />
         </div>
         
