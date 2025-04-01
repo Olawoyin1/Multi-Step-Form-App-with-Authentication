@@ -8,10 +8,10 @@ const Verification = ({ formik, resendOTP }) => {
       <div className='mt-4'>
         <div className="input-field">
           <label htmlFor="Enter OTP">Enter OTP</label>
-          <input type="text" placeholder='890123' {...formik.getFieldProps("otp")} />
+          <input type="text" placeholder='890123' {...formik.getFieldProps("otp_code")} />
 
-          {formik.touched.otp && formik.errors.otp && (
-            <small className="error">{formik.errors.otp}</small>
+          {formik.touched.otp_code && formik.errors.otp_code && (
+            <small className="error">{formik.errors.otp_code}</small>
           )}
 
         </div>

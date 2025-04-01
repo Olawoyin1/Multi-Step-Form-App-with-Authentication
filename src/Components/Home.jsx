@@ -22,12 +22,12 @@ const Home = () => {
         
         setUser(null)
         setLoading(false)
-        window.location.reload();
+        toast.success("You're Now Logged Out.")
+        return window.location.reload();
         
 
         
         
-        return toast.success("You're Now Logged Out.")
         
         
       } catch (error) {

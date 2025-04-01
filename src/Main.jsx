@@ -28,7 +28,7 @@ const Main = () => {
     phonenumber: "",
     dob: "",
     gender: "",
-    otp: "",
+    otp_code: "",
     password: "",
     confirmPassword: "",
   };
@@ -53,7 +53,7 @@ const Main = () => {
   });
 
   const OTPValidation = Yup.object().shape({
-    otp: Yup.string().length(6, "OTP must be 6 digits").required("OTP is required"),
+    otp_code: Yup.string().length(6, "OTP must be 6 digits").required("OTP is required"),
   });
 
 
@@ -69,7 +69,7 @@ const Main = () => {
         if (step === 1) {
           response = await sendOtp(values, setErrors);
         } else if (step === 2) {
-          response = await verifyOtp(values.email, values.otp, setErrors);
+          response = await verifyOtp(values, setErrors);
         } else if (step === 3) {
           response = await registerUser(values, setErrors);
         }
@@ -103,7 +103,7 @@ const Main = () => {
       } else {
         toast.error("Something went wrong. Try again.");
       }
-      return { error: true }; // ❌ Error, don't proceed
+      return { error: true }; 
     } finally {
       setLoading(false);
     }
@@ -111,15 +111,17 @@ const Main = () => {
   
   
 
-  const verifyOtp = async (email, otp, setErrors) => {
+  const verifyOtp = async (values, setErrors) => {
+    console.log(values)
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:8000/verify-otp/", { email, otp });
+      const response = await axios.post("http://localhost:8000/verify-otp/", values);
       toast.success(response.data);
       return { error: false };
     } catch (error) {
       if (error.response?.status === 400) {
-        setErrors({ otp: error.response.data.otp || "Invalid OTP" });
+        setErrors({ otp: error.response.error || "Invalid OTP" });
+        console.log(error.response)
       } else {
         setErrors({ general: "An error occurred. Please try again." });
       }
@@ -183,10 +185,10 @@ const Main = () => {
     <div>
       <div className="">
         <div className="sign row m-0">
-          <div className="img-side col-6 m-0 p-0">
+          <div className="img-side col-md-6 m-0 p-0">
             <img src="../Images/bg3.jpg" alt="" />
           </div>
-          <div className="form-side position-relative col-6 m-0 d-flex align-items-center justify-content-center p-0">
+          <div className="form-side col-md-6 m-0 d-flex align-items-center justify-content-center p-0">
             {loading && <Loading />}
 
             <div className="form-container rounded p-4">
@@ -231,7 +233,7 @@ const Main = () => {
                   {/* Next or Submit Button */}
                   <button
                     type="submit"
-                    className="bg-primary text-white px-5 py-2 rounded"
+                    className="bg-primary text-white px-5 py-2"
                     disabled={loading}
                   >
                     {step === steps.length ? "Submit" : "Continue"}
