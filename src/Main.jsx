@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Success from "./Components/Home";
 import UserDetails from "./Components/UserDetails";
 import Verification from "./Components/Verification";
 import Password from "./Components/Password";
@@ -8,11 +7,14 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import toast from "react-hot-toast";
 import Loading from "./Components/Loading";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Main = () => {
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [active, isActive] = useState(false);
+
+  const navigate = useNavigate()
 
   const steps = [
     { number: 1, label: "User Details" },
@@ -96,10 +98,12 @@ const Main = () => {
     try {
       const response = await axios.post("http://localhost:8000/send-otp/", values);
       toast.success(response.data.message);
+      isActive(true)
       return { error: false }; // ✅ No error, proceed
     } catch (error) {
       if (error.response?.status === 400) {
-        setErrors({ email: error.response.data.email || "Email is invalid" });
+        setErrors({ email: error.response.data.message || "Email is invalid" });
+        console.log(error.response)
       } else {
         toast.error("Something went wrong. Try again.");
       }
@@ -116,12 +120,12 @@ const Main = () => {
     setLoading(true);
     try {
       const response = await axios.post("http://localhost:8000/verify-otp/", values);
-      toast.success(response.data);
+      toast.success(response.data.message);
       return { error: false };
     } catch (error) {
       if (error.response?.status === 400) {
-        setErrors({ otp: error.response.error || "Invalid OTP" });
-        console.log(error.response)
+        setErrors({ otp_code: error.response.data.error || "Invalid OTP" });
+        console.log(error.response.data.error)
       } else {
         setErrors({ general: "An error occurred. Please try again." });
       }
@@ -136,11 +140,13 @@ const Main = () => {
     setLoading(true);
     try {
       const response = await axios.post("http://localhost:8000/register/", values);
-      toast.success(response.data);
+      toast.success(response.data.message);
+      navigate('/login')
+      
       return { error: false };
     } catch (error) {
       if (error.response?.status === 400) {
-        setErrors(error.response.data);
+        setErrors(error.response.data.error);
       } else {
         setErrors({ general: "Registration failed. Try again." });
       }
@@ -159,7 +165,7 @@ const Main = () => {
     console.log(values)
     try {
       const response = axios.post("http://localhost:8000/resend-otp/", values)
-      toast.success(response.data)
+      toast.success(response.data.message)
       
     } catch (error) {
       console.log(error.message)
@@ -206,7 +212,7 @@ const Main = () => {
                 {/* Form Content */}
                 <div className="form-contents">
                   {step === 1 && <UserDetails formik={formik} />}
-                  {step === 2 && <Verification resendOTP={resendOTP} formik={formik} />}
+                  {step === 2 && <Verification resendOTP={resendOTP} isActive={isActive} formik={formik} />}
                   {step === 3 && <Password formik={formik} />}
                 </div>
 
@@ -223,7 +229,7 @@ const Main = () => {
                   {step > 1 && (
                     <button
                       type="button"
-                      className="bg-secondary text-white rounded p-2 px-4"
+                      className="bg-secondary text-white p-2 px-4"
                       onClick={handlePrev}
                     >
                       Go Back
