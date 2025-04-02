@@ -373,11 +373,18 @@ label{
   }
 
   .form-container{
-    min-height: 70vh;
-    background-color: #ffffff7b;
+    min-height: 72vh;
+    background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(2px);
     border-radius: none;
   }
+
+  label{
+    color: #ffffff;
+  }
   
+  * {
+    color: #ffffff;
+}
     
   }
