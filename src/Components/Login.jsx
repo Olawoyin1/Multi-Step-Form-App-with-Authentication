@@ -106,7 +106,7 @@ const Login = () => {
               <form action=""  onSubmit={formik.handleSubmit} className='d-flex  flex-column gap-3 w-100'>
                   <div className="s-header text-center d-flex flex-column gap-1">
                     <h5 className="fw-bold">Login To Study Lab 📚</h5>
-                    <small className="text-md-muted text-white">
+                    <small className="text-muted">
                     Unlock learning resources and track your progress with ease.
                     </small>
                   </div>

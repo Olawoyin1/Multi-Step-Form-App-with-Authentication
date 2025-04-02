@@ -7,7 +7,7 @@ const UserDetails = ({ formik }) => {
     <div>
       <div className="s-header text-center d-flex flex-column gap-1">
         <p className="fw-bold">Personal Information</p>
-        <small className="text-md-muted text-white">
+        <small className="text-muted">
           Tell us a bit about yourself to get started.
         </small>
       </div>

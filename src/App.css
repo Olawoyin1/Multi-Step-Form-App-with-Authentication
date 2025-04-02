@@ -373,5 +373,12 @@ label{
       grid-template-columns: 1fr;
   }
 
+
+  
+  .form-container {
+    min-height: 590px;
+  }
+
+
  
   }
