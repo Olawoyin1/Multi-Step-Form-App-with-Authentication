@@ -190,11 +190,11 @@ const Main = () => {
   return (
     <div>
       <div className="">
-        <div className="sign row m-0">
-          <div className="img-side col-md-6 m-0 p-0">
+        <div className="sign d-flex flex-lg-row flex-column-reverse m-0">
+          <div className="img-side col m-0 p-0">
             <img src="../Images/bg3.jpg" alt="" />
           </div>
-          <div className="form-side col-md-6 m-0 d-flex align-items-center justify-content-center p-0">
+          <div className="form-side col m-0 d-flex align-items-center justify-content-center p-0">
             {loading && <Loading />}
 
             <div className="form-container rounded p-4">
