@@ -386,7 +386,7 @@ label{
 
   
 button:hover{
-  background-color: inherit;
+  background-color: blue;
   color: black !important;
   border: 1px solid #ccc;
 
