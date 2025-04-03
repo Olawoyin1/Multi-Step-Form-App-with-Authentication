@@ -12,6 +12,12 @@
   
 }
 
+.container2{
+
+  width: 84%;
+  margin: 2rem auto !important;
+}
+
 
 .home{
   min-height: 400px;
