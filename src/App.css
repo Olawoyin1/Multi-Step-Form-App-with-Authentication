@@ -387,7 +387,7 @@ label{
   
 button:hover{
   background-color: blue;
-  color: black !important;
+  color: #ffffff !important;
   border: 1px solid #ccc;
 
 }
