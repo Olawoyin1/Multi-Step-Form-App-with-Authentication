@@ -140,7 +140,12 @@ const Login = () => {
                   </div>
 
                   <div className="switch d-flex align-items-center justify-content-between">
-                    <small>Don't Have An Account ? <Link to="/signup">Sign Up</Link></small>
+                    <div className='d-flex flex-column'>
+                      <small>Don't Have An Account ? <Link to="/signup">Sign Up</Link></small>
+                      <small>
+                        <Link to="/">Back To HomePage</Link>
+                      </small>
+                    </div>
                     <button type="submit" className="bg-primary d-inline-block align-items-start text-white px-4 p-2 ">Login</button>
 
                   </div>
