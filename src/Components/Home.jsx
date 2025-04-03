@@ -50,7 +50,7 @@ const Home = () => {
   return (
     <div className="d-flex home align-items-center justify-content-center flex-column gap-3">
       {loading && <Loading />}
-      <h1>Welcome to the Study Lab 📚</h1>
+      <h3 className="fw-bold">Welcome to the Study Lab 📚</h3>
       <div>
 
             {
