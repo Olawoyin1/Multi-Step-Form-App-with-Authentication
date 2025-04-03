@@ -69,7 +69,7 @@ const UserDetails = ({ formik }) => {
 
         <div className="input-field">
           <label>Date Of Birth</label>
-          <input type="date" name="dob" {...formik.getFieldProps("dob")} />
+          <input type="date" name="dob" className="dob-input" {...formik.getFieldProps("dob")} />
           {formik.touched.dob && formik.errors.dob && (
             <small className="error">{formik.errors.dob}</small>
           )}

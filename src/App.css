@@ -92,6 +92,15 @@ body{
     outline: none !important;
     font-size:  13px !important;
     color: hsl(213, 96%, 18%);  
+  }
+
+  .dob-input {
+  display: block; 
+  width: 100%; 
+ 
+  padding: 9px 0.8rem;
+  border: 1px solid #ccc; 
+  border-radius: 4px; /* Optional: rounded corners */
 }
 
 input.check{
@@ -375,6 +384,13 @@ label{
       grid-template-columns: 1fr;
   }
 
+  
+button:hover{
+  background-color: inherit;
+  color: black !important;
+  border: 1px solid #ccc;
+
+}
 
   
   .form-container {
