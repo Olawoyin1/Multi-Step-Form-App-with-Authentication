@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NotFound from "./Components/NotFound.jsx";
 import Home from "./Components/Home.jsx";
 import { UserProvider } from "./Components/UserContext.jsx";
+import AdminUsers from "./Components/AdminUserPage.jsx";
 
 
 
@@ -33,6 +34,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Main />} />
+        <Route path="/admin" element={<AdminUsers />} />
         <Route path="*" element={<NotFound />} /> 
       </Routes>
     </Router>
