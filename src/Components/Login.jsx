@@ -60,7 +60,7 @@ const Login = () => {
         const userInfo = decodeToken(access);
         const id = userInfo.user_id;
 
-        const userDetails = await axios.get(`http://localhost:8000/users/${id}/`)
+        const userDetails = await axios.get(`https://olawoyin-multistepform.onrender.com/users/${id}/`)
         setUser(userDetails.data);
         
         setLoading(false);

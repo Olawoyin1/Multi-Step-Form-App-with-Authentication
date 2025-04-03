@@ -96,7 +96,7 @@ const Main = () => {
   const sendOtp = async (values, setErrors) => {
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:8000/send-otp/", values);
+      const response = await axios.post("https://olawoyin-multistepform.onrender.com/send-otp/", values);
       toast.success(response.data.message);
       isActive(true)
       return { error: false }; // ✅ No error, proceed
@@ -119,7 +119,7 @@ const Main = () => {
     console.log(values)
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:8000/verify-otp/", values);
+      const response = await axios.post("https://olawoyin-multistepform.onrender.com/verify-otp/", values);
       toast.success(response.data.message);
       return { error: false };
     } catch (error) {
@@ -139,7 +139,7 @@ const Main = () => {
   const registerUser = async (values, setErrors) => {
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:8000/register/", values);
+      const response = await axios.post("https://olawoyin-multistepform.onrender.com/register/", values);
       toast.success(response.data.message);
       navigate('/login')
       
@@ -164,7 +164,7 @@ const Main = () => {
     setLoading(true)
     console.log(values)
     try {
-      const response = axios.post("http://localhost:8000/resend-otp/", values)
+      const response = axios.post("https://olawoyin-multistepform.onrender.com/resend-otp/", values)
       toast.success(response.data.message)
       
     } catch (error) {
