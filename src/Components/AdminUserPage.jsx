@@ -48,7 +48,6 @@ const AdminUsers = () => {
             <th>First Name</th>
             <th>Last Name</th>
             <th>Phone</th>
-            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -58,10 +57,6 @@ const AdminUsers = () => {
               <td>{user.first_name}</td>
               <td>{user.last_name}</td>
               <td>{user.phone}</td>
-              <td className="d-flex align-items-center gap-2">
-                <button className="bg-secondary px-4 p-2 text-white" disabled>Edit</button>
-                <button className="bg-danger px-4 p-2 text-white" onClick={() => handleDelete(user.id)}>Delete</button>
-              </td>
             </tr>
           ))}
         </tbody>
